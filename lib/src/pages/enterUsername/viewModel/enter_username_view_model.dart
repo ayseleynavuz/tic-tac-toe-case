@@ -13,6 +13,8 @@ class EnterUsernameViewModel extends ChangeNotifier with ShowBar {
     final String username = usernameController.text.trim();
     if (username.isEmpty) return;
     _saveUsername(username);
+
+
   }
 
   void _saveUsername(String userName) async {
@@ -25,6 +27,7 @@ class EnterUsernameViewModel extends ChangeNotifier with ShowBar {
       NavigationService.instance
           .navigateToPage(path: NavigationConstants.gameListView);
     } else {
+      
       // show error
       showErrorBar(
         "An error occurred while saving the username",
