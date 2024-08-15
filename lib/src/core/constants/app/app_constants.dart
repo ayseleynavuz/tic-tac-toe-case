@@ -2,6 +2,7 @@ import 'package:provider/provider.dart';
 import 'package:tic_tac_toe/src/pages/creategame/viewmodel/create_game_view_model.dart';
 import 'package:tic_tac_toe/src/pages/enterUsername/viewModel/enter_username_view_model.dart';
 import 'package:tic_tac_toe/src/pages/splash/viewModel/splash_view_model.dart';
+import 'package:tic_tac_toe/src/pages/splash/viewModel/type_writer_view_model.dart';
 
 import '../../../common/viewModels/theme_view_model.dart';
 
@@ -28,6 +29,10 @@ class AppConstants {
     ),
     ChangeNotifierProvider<CreateGameViewModel>(
       create: (context) => CreateGameViewModel(),
+    ),
+
+        ChangeNotifierProvider<TypewriterViewModel>(
+      create: (context) => TypewriterViewModel(),
     ),
   ];
 }

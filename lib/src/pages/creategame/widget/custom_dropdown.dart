@@ -20,7 +20,7 @@ class CustomDropdownMenu extends StatelessWidget {
     return items?.isEmpty ?? true
         ? const SizedBox.shrink()
         : Container(
-            height: 45.h,
+            height: 55.h,
             width: 300.w,
             decoration: BoxDecoration(
               color: ColorConstants.white,
@@ -52,9 +52,9 @@ class CustomDropdownMenu extends StatelessWidget {
                     5.horizontalSpace,
                     Text(
                       text ?? "",
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        color: Colors.grey[400],
+                      style: TextStyleConstants.regularStyle(
+                        color: ColorConstants.lightGreyColor,
+                        fontSize: 16.sp,
                       ),
                     ),
                   ],

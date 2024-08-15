@@ -10,7 +10,8 @@ class CustomTextFormField extends StatelessWidget {
     this.labelText,
     this.hintText,
     this.onChanged,
-    this.onTap, this.controller,
+    this.onTap,
+    this.controller,
   });
 
   final String? labelText;
@@ -46,9 +47,9 @@ class CustomTextFormField extends StatelessWidget {
               hintText: hintText,
               contentPadding:
                   EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
-              hintStyle: TextStyle(
-                fontSize: 14.sp,
+              hintStyle: TextStyleConstants.regularStyle(
                 color: ColorConstants.lightGreyColor,
+                fontSize: 16.sp,
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(

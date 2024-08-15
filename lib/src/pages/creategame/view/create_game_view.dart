@@ -7,7 +7,6 @@ import '../viewmodel/create_game_view_model.dart';
 import '../widget/app_button.dart';
 import '../widget/custom_dropdown.dart';
 import '../widget/custom_textform_field.dart';
-import '../widget/type_writer_text.dart';
 
 class CreateGameView extends StatelessWidget {
   const CreateGameView({super.key});
@@ -23,10 +22,12 @@ class CreateGameView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const TypewriterText(
-              text: "Oyun Oluştur",
+            Text(
+              "Oyun Oluştur",
+              style: TextStyleConstants.mediumStyle(
+                fontSize: 30.sp,
+              ),
             ),
-
             80.verticalSpace,
             CustomTextFormField(
               hintText: "Oyun Adı Giriniz",
