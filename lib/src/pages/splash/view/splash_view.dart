@@ -5,8 +5,6 @@ import 'package:tic_tac_toe/src/core/exports/constants_exports.dart';
 import 'package:tic_tac_toe/src/pages/creategame/widget/app_button.dart';
 import 'package:tic_tac_toe/src/pages/splash/viewModel/splash_view_model.dart';
 
-import '../../creategame/widget/type_writer_text.dart';
-
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
@@ -21,7 +19,6 @@ class SplashView extends StatelessWidget {
           children: [
             TypewriterText(
               text: 'Tic Tac Toe\'ya Hoşgeldiniz!',
-              shouldRepeat: false,
               style: TextStyleConstants.extraBoldStyle(
                 color: Colors.white,
                 fontSize: 30,
@@ -29,9 +26,8 @@ class SplashView extends StatelessWidget {
             ),
             50.verticalSpace,
             AppButton(
-              buttonText: 'Başla',
               onPressed: () => splashViewModel.nextPage(),
-              color: ColorConstants.white,
+              buttonText: 'Başla',
             ),
           ],
         ),
@@ -40,3 +36,41 @@ class SplashView extends StatelessWidget {
   }
 }
 
+class TypewriterText extends StatefulWidget {
+  final String text;
+  final TextStyle style;
+
+  const TypewriterText({super.key, required this.text, required this.style});
+
+  @override
+  State<TypewriterText> createState() => _TypewriterTextState();
+}
+
+class _TypewriterTextState extends State<TypewriterText> {
+  final _typingDuration = const Duration(milliseconds: 50);
+  late String _displayedText;
+
+  @override
+  void initState() {
+    _displayedText = '';
+    _animateText();
+    super.initState();
+  }
+
+  void _animateText() async {
+    for (var i = 0; i <= widget.text.length; i++) {
+      await Future.delayed(_typingDuration);
+      setState(() {
+        _displayedText = widget.text.substring(0, i);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _displayedText,
+      style: widget.style,
+    );
+  }
+}
